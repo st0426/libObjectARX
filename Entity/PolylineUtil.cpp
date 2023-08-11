@@ -293,7 +293,7 @@ RETRY:
 		}
 
 		int count = intPoints.length();
-		for (i = 0; i < intPoints.length(); i++)
+		for (int i = 0; i < intPoints.length(); i++)
 		{
 			if (PointIsPolyVert(pPoly, CConvertUtil::ToPoint2d(intPoints[i]), 1.0E-4))		// 只要有交点是多段线的顶点就重新进行判断
 			{

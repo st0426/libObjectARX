@@ -315,7 +315,11 @@ AcDbObjectId CBlockUtil::CopyBlockDefFromOtherDwg( const TCHAR* fileName, const 
 
 	// 使用_SH_DENYNO参数打开图形(只读打开)，允许其它用户读写该文件
 	AcDbDatabase* pSourceDwg = new AcDbDatabase(false);	
-	Acad::ErrorStatus es = pSourceDwg->readDwgFile(fileName, _SH_DENYNO);
+	#if _MSC_VER>=1900
+		Acad::ErrorStatus es = pSourceDwg->readDwgFile(fileName, static_cast<AcDbDatabase::OpenMode>(_SH_DENYNO));
+	#elif _MSC_VER<1900
+		Acad::ErrorStatus es = pSourceDwg->readDwgFile(fileName, _SH_DENYNO);
+	#endif
 	if (es != Acad::eOk)
 	{
 		delete pSourceDwg;
@@ -369,7 +373,12 @@ AcDbObjectId CBlockUtil::InsertDwgBlockDef( const TCHAR* dwgFileName, const TCHA
 		if (_taccess(dwgFileName, 0) != -1)
 		{
 			AcDbDatabase *pBlkDb = new AcDbDatabase(false);
-			Acad::ErrorStatus es = pBlkDb->readDwgFile(dwgFileName, _SH_DENYNO);
+			
+			#if _MSC_VER>=1900
+				Acad::ErrorStatus es = pBlkDb->readDwgFile(dwgFileName,  static_cast<AcDbDatabase::OpenMode>(_SH_DENYNO));
+			#elif _MSC_VER<1900
+				Acad::ErrorStatus es = pBlkDb->readDwgFile(dwgFileName, _SH_DENYNO);
+			#endif
 			if (es == Acad::eOk)
 			{
 				es = pDb->insert(blkDefId, blkName, pBlkDb);
