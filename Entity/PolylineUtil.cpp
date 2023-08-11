@@ -224,7 +224,7 @@ static void IntersectWithGeRay( AcDbPolyline *pPoly, const AcGeRay2d &geRay, AcG
 	}
 	
 	double z = pPoly->elevation();
-	for (i = 0; i < intPoints2d.length(); i++)
+	for (int i = 0; i < intPoints2d.length(); i++)
 	{
 		intPoints.append(AcGePoint3d(intPoints2d[i].x, intPoints2d[i].y, z));
 	}
