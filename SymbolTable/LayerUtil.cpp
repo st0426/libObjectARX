@@ -5,7 +5,7 @@
 #include "stdafx.h"
 #include "LayerUtil.h"
 #include <dbsymtb.h>
-
+#include <dbobjptr.h>
 #ifdef _DEBUG
 #undef THIS_FILE
 static char THIS_FILE[]=__FILE__;

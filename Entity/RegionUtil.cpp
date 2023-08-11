@@ -50,7 +50,7 @@ AcDbObjectIdArray CRegionUtil::Add( const AcDbObjectIdArray& curveIds )
 	if (es == Acad::eOk)
 	{
 		// 将生成的面域添加到模型空间
-		for (i = 0; i < regions.length(); i++)
+		for (int i = 0; i < regions.length(); i++)
 		{
 			// 将空指针（可指向任何类型）转化为指向面域的指针
 			pRegion = static_cast<AcDbRegion*>(regions[i]);
@@ -62,14 +62,14 @@ AcDbObjectIdArray CRegionUtil::Add( const AcDbObjectIdArray& curveIds )
 	}
 	else	// 如果创建不成功，也要删除已经生成的面域
 	{
-		for (i = 0; i < regions.length(); i++)
+		for (int i = 0; i < regions.length(); i++)
 		{
 			delete (AcRxObject*)regions[i];
 		}
 	}
 	
 	// 关闭作为边界的对象
-	for (i = 0; i < curves.length(); i++)
+	for (int i = 0; i < curves.length(); i++)
 	{
 		pEnt = static_cast<AcDbEntity*>(curves[i]);
 		pEnt->close();

@@ -224,7 +224,7 @@ static void IntersectWithGeRay( AcDbPolyline *pPoly, const AcGeRay2d &geRay, AcG
 	}
 	
 	double z = pPoly->elevation();
-	for (i = 0; i < intPoints2d.length(); i++)
+	for (int i = 0; i < intPoints2d.length(); i++)
 	{
 		intPoints.append(AcGePoint3d(intPoints2d[i].x, intPoints2d[i].y, z));
 	}
@@ -293,7 +293,7 @@ RETRY:
 		}
 
 		int count = intPoints.length();
-		for (i = 0; i < intPoints.length(); i++)
+		for (int i = 0; i < intPoints.length(); i++)
 		{
 			if (PointIsPolyVert(pPoly, CConvertUtil::ToPoint2d(intPoints[i]), 1.0E-4))		// 只要有交点是多段线的顶点就重新进行判断
 			{
