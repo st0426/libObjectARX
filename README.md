@@ -1,10 +1,33 @@
 # libObjectARX
 
 #### 介绍
-libObjectARX
+libObjectARX是开源的ObjectARX通用函数库，支持从ObjectARX2007~ObjectARX2021，
+Database，ADO，MfcGridCtrl不算，先放库里面，Excel里面的ExcelUTil也不是库文件，暂时放在里面
 
 #### 软件架构
 软件架构说明
+将来打算添加以下
+
+反应器封装类
+CReactorUtil
+
+Xdata封装类
+CXdataUtil
+
+Xrecord封装类
+CXrecordUtil
+
+Dictionary封装类
+CDictionaryUtil
+
+实体拖动，可能会有两个
+CEntityJigUtil
+CEntityJigUtil
+
+算法库
+Algorithms
+
+其他暂时没想到
 
 
 #### 安装教程
